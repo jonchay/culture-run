@@ -7,4 +7,18 @@
   = csrf_meta_tags
 
 %body
-  = yield
+  .navbar
+    .navbar-inner
+      = link_to 'Culture Run', root_path, :class => 'brand'
+      %ul.nav
+        %li= link_to 'Learn', '#'
+        %li= link_to 'Teach', '#'
+        %li= link_to 'Host', '#'
+        %li= link_to 'List', '#'
+
+  .container
+    - if notice.present?
+      .alert= notice
+    = yield
+
+    = params.inspect
