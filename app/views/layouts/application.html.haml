@@ -1,24 +1,24 @@
 !!! 5
+%html{ :'ng-app' => '' }
+  %head
+    %title Culture Run
+    = stylesheet_link_tag 'application', :media => 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
 
-%head
-  %title Culture Run
-  = stylesheet_link_tag 'application', :media => 'all'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
+  %body
+    .navbar
+      .navbar-inner
+        = link_to 'Culture Run', root_path, :class => 'brand'
+        %ul.nav
+          %li= link_to 'Learn', '#'
+          %li= link_to 'Teach', '#'
+          %li= link_to 'Host', '#'
+          %li= link_to 'List', '#'
 
-%body
-  .navbar
-    .navbar-inner
-      = link_to 'Culture Run', root_path, :class => 'brand'
-      %ul.nav
-        %li= link_to 'Learn', '#'
-        %li= link_to 'Teach', '#'
-        %li= link_to 'Host', '#'
-        %li= link_to 'List', '#'
+    .container
+      - if notice.present?
+        .alert= notice
+      = yield
 
-  .container
-    - if notice.present?
-      .alert= notice
-    = yield
-
-    = params.inspect
+      = params.inspect
