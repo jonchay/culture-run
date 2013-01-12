@@ -7,8 +7,6 @@
         :data_ng_minlength => "15" }
       %br
       %div.guidance
-        {{myForm.subject.$error}}
-        {{myForm.subject.length}}
         %div{ :data_ng_class => "{'text-error': myForm.subject.$error.required, 'text-success': !myForm.subject.$error.required}" }
           %i.icon-minus
           %i.icon-ok
