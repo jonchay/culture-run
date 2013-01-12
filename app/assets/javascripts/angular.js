@@ -11300,6 +11300,7 @@ function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   // min length validator
   if (attr.ngMinlength) {
     var minlength = int(attr.ngMinlength);
+    console.log(minlength);
     var minLengthValidator = function(value) {
       if (!isEmpty(value) && value.length < minlength) {
         ctrl.$setValidity('minlength', false);

@@ -1,5 +1,34 @@
-%input{:type => 'text', :'ng-model' => 'yourName', :plaeholder => 'Enter a name here...' }
-  %h1 Hello {{yourName}}!
+.questions-rom{ :data_ng_controller => 'formsController' }
+  %form.form-horizontal{ :name => 'myForm' }
+    .control-group{ :data_ng_class => '{error: myForm.subject.$error.required, warning: myForm.subject.$error.minlength, success: myForm.subject.$valid}' }
+      %input{:name => 'subject', :required => true, :type => 'text',
+        :data_ng_model => 'questionSubject',
+        :data_ng_pattern => '/^(What|When|How|Which|Where|Who|Why|Can)/',
+        :data_ng_minlength => "15" }
+      %br
+      %div.guidance
+        {{myForm.subject.$error}}
+        {{myForm.subject.length}}
+        %div{ :data_ng_class => "{'text-error': myForm.subject.$error.required, 'text-success': !myForm.subject.$error.required}" }
+          %i.icon-minus
+          %i.icon-ok
+          Question can't be blank.
+        %div{ :data_ng_class => "{'text-error': myForm.subject.$error.required,
+              'text-warning': myForm.subject.$error.minlength,
+              'text-success': (!myForm.subject.$error.minlength && !myForm.subject.$error.required) }" }
+          %i.icon-minus
+          %i.icon-ok
+          Question is too short! (Minimum 15 characters)
+        %div{ :data_ng_class => "{'text-error': myForm.subject.$error.required,
+              'text-warning': (!myForm.subject.$error.minlength || myForm.subject.$error.pattern),
+              'text-success': (!myForm.subject.$error.pattern && !myForm.subject.$error.required)}" }
+          %i.icon-minus
+          %i.icon-ok
+          Please ask a valid question.
+          %b
+            Tip:
+          %i
+            %small Start with "What", "Who", "When" etc. End the question with a '?'
 
 
 .page-header

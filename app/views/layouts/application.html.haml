@@ -6,6 +6,10 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
+    :css
+      .text-error .icon-ok, .text-warning .icon-ok { display: none; }
+      .text-success .icon-minus { display: none; }
+
   %body
     .navbar
       .navbar-inner
