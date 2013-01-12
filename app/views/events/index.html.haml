@@ -20,15 +20,15 @@
           %i.icon-ok
           Question is too short! (Minimum 15 characters)
         %div{ :data_ng_class => "{'text-error': myForm.subject.$error.required,
-              'text-warning': (!myForm.subject.$error.minlength || myForm.subject.$error.pattern),
+              'text-warning': (!myForm.subject.$error.minlength && myForm.subject.$error.pattern),
               'text-success': (!myForm.subject.$error.pattern && !myForm.subject.$error.required)}" }
           %i.icon-minus
           %i.icon-ok
           Please ask a valid question.
-          %b
-            Tip:
           %i
-            %small Start with "What", "Who", "When" etc. End the question with a '?'
+            %small
+              %b Tip:
+              Start with "What", "Who", "When" etc. End the question with a '?'
 
 
 .page-header
